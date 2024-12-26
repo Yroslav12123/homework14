@@ -1,4 +1,3 @@
-
 car_info = {
     "модель": "Toyota Corolla",
     "ціна": 600000,
@@ -18,13 +17,13 @@ car_info = {
     "максимальна дозволена маса причепа з гальмами": 1300
 }
 
-# Отримання інформації з словника
+
 name_vehicle = car_info.get("модель")
 price = car_info.get("ціна")
-first_option_interier = car_info.get("особливості інтер'єру", [None])[0]  # Робимо перевірку на наявність опцій
+first_option_interier = car_info.get("особливості інтер'єру", [None])[0]
 volume_of_trunk_with_folded_seats = car_info.get("параметри багажного відділення", {}).get("об'єм багажника зі складеним сидінням")
 
-# Вивід інформації
+
 print("Назва авто:", name_vehicle)
 print("Ціна:", price)
 print("Перша опція інтер'єру:", first_option_interier)
