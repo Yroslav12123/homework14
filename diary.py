@@ -1,32 +1,32 @@
 car_info = {
-    "модель": "Toyota Corolla",
-    "ціна": 600000,
-    "робочий об'єм двигуна": 1.8,
-    "повна маса": 1800,
-    "максимальна швидкість": 180,
-    "особливості інтер'єру": [
-        "Клімат-контроль",
-        "Сенсорний дисплей",
-        "Шкіряні сидіння",
-        "Мультимедійна система з Bluetooth"
+    "model": "Toyota Corolla",
+    "price": 600000,
+    "working volume of the engine": 1.8,
+    "full weight": 1800,
+    "max speed": 180,
+    "features of the interior": [
+        "Climate control",
+        "Touch display",
+        "Leather seats",
+            "Multimedia system with Bluetooth"
     ],
-    "параметри багажного відділення": {
-        "об'єм багажника": 470,
-        "об'єм багажника зі складеним сидінням": 1040
+    "parameters of the luggage compartment": {
+        "trunk volume": 470,
+        "trunk volume with folded seat": 1040
     },
-    "максимальна дозволена маса причепа з гальмами": 1300
+    "maximum permissible weight of a trailer with brakes": 1300
 }
 
 
-name_vehicle = car_info.get("модель")
-price = car_info.get("ціна")
-first_option_interier = car_info.get("особливості інтер'єру", [None])[0]
-volume_of_trunk_with_folded_seats = car_info.get("параметри багажного відділення", {}).get("об'єм багажника зі складеним сидінням")
+name_vehicle = car_info.get("model")
+price = car_info.get("price")
+first_option_interier = car_info.get("features of the interior", [None])[0]
+volume_of_trunk_with_folded_seats = car_info.get("parameters of the luggage compartment", {}).get("trunk volume with folded seat")
 
 
-print("Назва авто:", name_vehicle)
-print("Ціна:", price)
-print("Перша опція інтер'єру:", first_option_interier)
-print("Об'єм багажника зі складеними сидіннями:", volume_of_trunk_with_folded_seats)
+print("Name of the car:", name_vehicle)
+print("price:", price)
+print("The first interior option:", first_option_interier)
+print("trunk volume with folded seat:", volume_of_trunk_with_folded_seats)
 
 
