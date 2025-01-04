@@ -1,19 +1,20 @@
 import requests
 
-response = requests.get('https://dummyjson.com/users')
-data = response.json()
+url = "https://dummyjson.com/users"
+response = requests.get(url)
 
-count_under_30 = 0
-count_women_green_eyes = 0
-count_in_san_francisco = 0
+if response.status_code == 200:
+    users = response.json().get('users', [])
+else:
+    print("Не вдалося отримати дані:", response.status_code)
+    users = []
 
-for user in data['users']:
-    if user['age'] < 30:
-        count_under_30 += 1
-    if user['gender'] == 'female' and user['eyeColor'] == 'green':
-        count_women_green_eyes += 1
-    if user['address']['city'] == 'San Francisco':
-        count_in_san_francisco += 1
-print(f"Кількість користувачів молодше 30 років: {count_under_30}")
-print(f"Кількість жінок з зеленими очима: {count_women_green_eyes}")
-print(f"Кількість людей, які живуть у San Francisco: {count_in_san_francisco}")
+under_30_count = sum(1 for user in users if user['age'] < 30)
+
+women_with_green_eyes_count = sum(1 for user in users if user['gender'] == 'female' and user['eyeColor'] == 'Green')
+
+living_in_san_francisco_count = sum(1 for user in users if user['address']['city'] == 'San Francisco')
+
+print(f"Кількість користувачів молодше 30 років: {under_30_count}")
+print(f"Кількість жінок з зеленими очима: {women_with_green_eyes_count}")
+print(f"Кількість людей, які живуть у Сан-Франциско: {living_in_san_francisco_count}")
